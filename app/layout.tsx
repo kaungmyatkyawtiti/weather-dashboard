@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { Providers } from "@/components/Providers";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const montserrat = Montserrat({
   weight: ['400', '500', '600', '700'],
@@ -24,14 +26,15 @@ export default function RootLayout({
       <body
         className={montserrat.className}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <Providers>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1 py-10 md:px-16 px-4">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );
