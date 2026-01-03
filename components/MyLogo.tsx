@@ -1,20 +1,17 @@
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function MyLogo() {
   return (
-    <Link
-      href={"/"}
-    >
+    <Link href="/" className="relative block h-15 w-25">
       <Image
         src="/logo.png"
         alt="Weather Logo"
-        width={60}
-        height={60}
-        loading="eager"
+        fill
         priority
-        className="h-auto w-auto"
+        className="object-contain"
+        sizes="auto"
       />
     </Link>
-  )
+  );
 }

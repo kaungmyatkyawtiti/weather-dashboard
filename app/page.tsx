@@ -7,6 +7,10 @@ import { useGeolocation } from "@/hooks/useGeolocation";
 import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from "@/hooks/weatherHook";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import CurrentWeather from "@/components/CurrentWeather";
+import HourlyTemperature from "@/components/HourlyTemperature";
+import WeatherDetails from "@/components/WeatherDetails";
+import WeatherForecast from "@/components/WeatherForecast";
 
 export default function HomePage() {
   const {
@@ -99,7 +103,7 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-semibold tracking-tight">
           My Location
@@ -121,6 +125,21 @@ export default function HomePage() {
             )}
           />
         </button>
+      </div>
+
+      <div className="grid gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
+          <CurrentWeather
+            data={weatherQuery.data}
+            locationName={locationName}
+          />
+          <WeatherDetails data={weatherQuery.data} />
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2 items-start">
+          <HourlyTemperature data={forecastQuery.data} />
+          <WeatherForecast data={forecastQuery.data} />
+        </div>
       </div>
     </div >
   )
