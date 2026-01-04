@@ -3,14 +3,14 @@ import Image from "next/image";
 
 export default function MyLogo() {
   return (
-    <Link href="/" className="relative block h-15 w-25">
+    <Link href="/">
       <Image
-        src="/logo.png"
+        src="/logo.jpg"
         alt="Weather Logo"
-        fill
+        width={45}
+        height={45}
         priority
-        className="object-contain"
-        sizes="auto"
+        className="object-contain w-auto h-auto rounded-full"
       />
     </Link>
   );

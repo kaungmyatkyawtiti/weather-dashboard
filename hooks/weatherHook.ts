@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { Coordinates } from "@/types/config";
-import { getCurrentWeather, getForecast, reverseGeocode } from "@/api/weather.api";
+import { getCurrentWeather, getForecast, reverseGeocode, searchLocations } from "@/api/weather.api";
 
 export const WEATHER_KEYS = {
   weather: (coords: Coordinates) => ["weather", coords] as const,
@@ -34,4 +34,12 @@ export const useReverseGeocodeQuery = (
   queryFn: () =>
     coordinates ? reverseGeocode(coordinates) : null,
   enabled: !!coordinates,
+})
+
+export const useLocationSearch = (
+  query: string
+) => useQuery({
+  queryKey: WEATHER_KEYS.search(query),
+  queryFn: () => searchLocations(query),
+  enabled: query.length >= 3,
 })

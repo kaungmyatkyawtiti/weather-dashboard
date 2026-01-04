@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { Toaster } from "sonner";
 
 const montserrat = Montserrat({
   weight: ['400', '500', '600', '700'],
@@ -41,8 +42,9 @@ export default function RootLayout({
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1 py-10 md:px-16 px-6">
+            <main className="flex-1 py-6 md:px-16 px-6">
               {children}
+              <Toaster richColors />
             </main>
             <Footer />
           </div>

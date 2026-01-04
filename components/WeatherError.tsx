@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 interface WeatherErrorProps {
   title: string;
   error: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export default function WeatherError({

@@ -62,6 +62,11 @@ export const reverseGeocode = async ({
   return fetchData<GeocodingResponse[]>(url);
 }
 
-// export const searchLocations = async () => {
-//
-// }
+export const searchLocations = async (query: string): Promise<GeocodingResponse[]> => {
+  const url = createUrl(`${API_CONFIG.GEO}/direct`, {
+    q: query,
+    limit: 5,
+  });
+
+  return fetchData<GeocodingResponse[]>(url);
+}

@@ -51,7 +51,7 @@ export default function HomePage() {
           onClick={getLocation}
           className="inline-flex w-fit"
         >
-          <MapPin className="h-4 w-4" />
+          <MapPin size={20} />
           Enable Location
         </Button>
       </WeatherError>
@@ -70,7 +70,7 @@ export default function HomePage() {
           onClick={getLocation}
           className="inline-flex w-fit"
         >
-          <MapPin className="h-4 w-4" />
+          <MapPin size={20} />
           Enable Location
         </Button>
       </WeatherError>
@@ -82,7 +82,7 @@ export default function HomePage() {
   if (weatherQuery.error || forecastQuery.error) {
     return (
       <WeatherError
-        title={"Error"}
+        title={"Something Went Wrong"}
         error={"Failed to fetch weather data.Please try again."}
       >
         <Button
@@ -91,7 +91,7 @@ export default function HomePage() {
           onClick={handleRefresh}
           className="inline-flex w-fit"
         >
-          <MapPin className="h-4 w-4" />
+          <RefreshCcw size={20} />
           Retry
         </Button>
       </WeatherError>
