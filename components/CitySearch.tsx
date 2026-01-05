@@ -106,7 +106,7 @@ export default function CitySearch() {
                     onSelect={handleSelect}
                   >
                     <Star className="text-yellow-500 fill-yellow-500" />
-                    <span>{city.name}</span>
+                    <span>{decodeURIComponent(city.name)}</span>
                     {city.state && (
                       <span className="text-sm text-muted-foreground">
                         , {city.state}

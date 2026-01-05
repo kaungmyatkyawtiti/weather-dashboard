@@ -11,6 +11,7 @@ import CurrentWeather from "@/components/CurrentWeather";
 import HourlyTemperature from "@/components/HourlyTemperature";
 import WeatherDetails from "@/components/WeatherDetails";
 import WeatherForecast from "@/components/WeatherForecast";
+import { FavoriteCities } from "@/components/FavCities";
 
 export default function HomePage() {
   const {
@@ -104,6 +105,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-6">
+      <FavoriteCities />
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-semibold tracking-tight">
           My Location

@@ -48,7 +48,7 @@ export default function page() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold tracking-tight">
-          {params.cityName}, {weatherQuery.data.sys.country}
+          {decodeURIComponent(params.cityName)}, {weatherQuery.data.sys.country}
         </h1>
 
         <FavButton
